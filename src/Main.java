@@ -16,6 +16,11 @@ public class Main {
                     Integer.parseInt(lineAsArray[1]),
                     lineAsArray[2].equals("férfi") ? Gender.MALE : Gender.FEMALE ) );
         }
+        for (var actual : people
+             ) {
+            System.out.println(actual);
+
+        }
 
 
 
