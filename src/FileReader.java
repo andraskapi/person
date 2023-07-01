@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -6,17 +7,21 @@ import java.util.Scanner;
 public class FileReader {
 
 
-    public static List<String> lista(String filePath) {
-        List<String> lista = new ArrayList<>();
+    public static List<String> readHandler(String filePath) {
+        List<String> lines = new ArrayList<>();
         File file = new File(filePath);
-        Scanner sc = null;
-        try {sc = new Scanner(file);
+        try {
+            Scanner sc = new Scanner(file);
 
             while (sc.hasNextLine()) {
-
-
+                lines.add(sc.nextLine());
             }
-        }catch ()
+            sc.close();
+
+        } catch (FileNotFoundException exception) {
+            System.out.println(exception.getMessage() + "A fájl nem található");
+        }
+        return lines;
 
 
     }
